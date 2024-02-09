@@ -7,18 +7,27 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
     "dev": "webpack --mode development",
-    "start": "webpack serve --mode=development --open --port 333"
+    "start": "webpack serve --mode=development --open --port 3000",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "Miquel Lopez",
+    "email": "miquellopezavila@gmail.com"
+  },
   "license": "ISC",
   "dependencies": {
-    "@ant-design/icons": "^4.5.0",
-    "antd": "^4.12.3",
     "css-loader": "^5.0.2",
     "file-loader": "^6.2.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.0",
+    "react-scripts": "5.0.1",
+    "styled-components": "^5.3.6",
+    "typewriter-effect": "^2.19.0",
+    "url-loader": "^4.1.1",
+    "web-vitals": "^2.1.4"
   },
   "devDependencies": {
     "@babel/cli": "7.12.10",
@@ -34,6 +43,13 @@
     "babel-plugin-module-resolver": "4.0.0",
     "babel-plugin-wildcard": "6.0.0",
     "babel-preset-react": "6.24.1",
+    "eslint": "^8.9.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^16.1.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react-hooks": "^4.4.0",
+    "gh-pages": "^4.0.0",
     "html-loader": "^1.3.2",
     "html-webpack-plugin": "^5.0.0",
     "mini-css-extract-plugin": "^1.3.6",
