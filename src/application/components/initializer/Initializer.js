@@ -6,6 +6,7 @@ import { RelativeContainer } from './Initializer.styled';
 function Initializer({ children }) {
   return (
     <RelativeContainer>
+      <InitialLoader />
       {children}
     </RelativeContainer>
   );
