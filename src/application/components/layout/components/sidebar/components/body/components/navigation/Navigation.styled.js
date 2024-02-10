@@ -22,6 +22,9 @@ export const List = styled.ul`
   gap: 25px;
   width: 100%;
 `;
+export const PointerEventsNone = styled.span`
+  pointer-events: none;
+`;
 
 export const animationNavItem = css`
   transition: background-color ${changeThemeTime}s;
@@ -35,6 +38,8 @@ export const Item = styled.li`
   padding-left: 12px;
   border-bottom-left-radius: 15px;
   border-top-left-radius: 15px;
+  position: relative;
+  z-index: 10;
   ${({ isThemeChanging }) => isThemeChanging && animationNavItem}
   ${({ selectedTab }) => selectedTab && selectedTabStyle}
   pointer-events: ${({ canChangeTheme }) => canChangeTheme.value ? 'unset' : 'none'};
@@ -96,5 +101,6 @@ export const TopLimit = styled.span`
 
 export const selectedTabStyle = css`
   position: relative;
+  z-index: 10;
   background: ${({ theme }) => theme.limitsNavbarColor};
 `;

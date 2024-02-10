@@ -12,7 +12,7 @@ const InitialLoader = () => {
   const rainContainer = useRef(null);
 
   useEffect(() => {
-    genRain();
+      genRain();
   }, []);
 
   const genRain = () => {
@@ -29,10 +29,11 @@ const InitialLoader = () => {
   return (
     <Wrapper>
       <RaindropContainer ref={rainContainer} />
-      <Cloud url={cloud} top="30%" left="-10%" size="1000px" color={cloudsColorInitialLoader} opacity="1" isLeft index={11} />
-      <Cloud url={cloud} top="-60%" left="-10%" size="1300px" color={cloudsColorInitialLoader} opacity="1" isLeft index={11} />
-      <Cloud url={cloud} top="0%" left="35%" size="1500px" color={cloudsColorInitialLoader} opacity="1" index={11} />
-      <Cloud url={cloud} top="0%" left="65%" size="500px" color={cloudsColorInitialLoader} opacity="1" index={11} />
+      <Cloud url={cloud} top="20%" left="0%" size="1000px" color={cloudsColorInitialLoader} opacity="1" isLeft index={11} />
+      <Cloud url={cloud} top="-40%" left="-10%" size="1300px" color={cloudsColorInitialLoader} opacity="1" isLeft index={11} />
+      <Cloud url={cloud} top="0%" left="45%" size="1500px" color={cloudsColorInitialLoader} opacity="1" index={11} />
+      <Cloud url={cloud} top="-30%" left="10%" size="1500px" color={cloudsColorInitialLoader} opacity="1" index={11} />
+      <Cloud url={cloud} top="-30%" left="45%" size="1000px" color={cloudsColorInitialLoader} opacity="1" index={11} />
       <DarkMode />
     </Wrapper>
   );

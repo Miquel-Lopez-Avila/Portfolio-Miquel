@@ -4,10 +4,6 @@ import InitialLoader from '../../../common/components/initial-loader/InitialLoad
 import { RelativeContainer } from './Initializer.styled';
 
 function Initializer({ children }) {
-  useEffect(() => {
-    document.body.style.margin = '0px';
-  }, []);
-
   return (
     <RelativeContainer>
       {children}

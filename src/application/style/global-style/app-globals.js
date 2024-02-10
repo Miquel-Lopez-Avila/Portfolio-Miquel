@@ -1,5 +1,6 @@
 import { css } from 'styled-components';
 import { device } from '../breakpoint';
+import {changeThemeTime} from "../../config/variables";
 
 export const appGlobals = css`
   * {

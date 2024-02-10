@@ -36,6 +36,7 @@ export const Tab = styled.div`
   justify-content: center;
   align-items: center;
   max-width: 20%;
+  overflow: hidden;
 `;
 
 export const selectedTabStyle = css`
@@ -63,7 +64,7 @@ export const NavLink = styled.a`
   color: unset;
   pointer-events: ${({ canChangeTheme }) => canChangeTheme.value ? 'unset' : 'none'};
   cursor: ${({ canChangeTheme }) => canChangeTheme.value ? 'pointer' : 'unset'};
-
+  ${({ isThemeChanging }) => isThemeChanging && animationNavItem}
   border-radius: 0 0 12px 12px;
   padding: 4px 12px;
   ${({ selectedTab }) => selectedTab && selectedTabStyle};

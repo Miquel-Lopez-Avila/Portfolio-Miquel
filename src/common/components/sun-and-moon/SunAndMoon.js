@@ -11,10 +11,14 @@ import {
 } from './SunAndMoon.styled';
 
 const SunAndMoon = ({ canChangeTheme, setCanChangeTheme }) => {
-  const [isLightTheme, setIsLightTheme] = useState(true);
+  const [isLightTheme, setIsLightTheme] = useState(false);
   const [isSunAndMoonClickeable, setIsSunAndMoonClickeable] = useState(false);
   const [unMountCurrentTheme, setUnMountCurrentTheme] = useState(false);
   const { setTheme } = useContext(Config);
+
+  useEffect(() => {
+    changeTheme();
+  }, []);
 
   const changeTheme = () => {
     setCanChangeTheme({ ...canChangeTheme, value: false });
@@ -25,13 +29,13 @@ const SunAndMoon = ({ canChangeTheme, setCanChangeTheme }) => {
   const onSunAnimationEnd = () => {
     if (unMountCurrentTheme) setIsLightTheme(false);
     setUnMountCurrentTheme(false);
-    document.body.style.transition = `background-color ${changeThemeTime}s`;
     setCanChangeTheme({ ...canChangeTheme, sun: true });
   };
 
   const onMoonAnimationEnd = () => {
     if (unMountCurrentTheme) setIsLightTheme(true);
     setUnMountCurrentTheme(false);
+    document.body.style.transition = `background-color ${changeThemeTime}s`;
     setCanChangeTheme({ ...canChangeTheme, moon: true });
   };
 

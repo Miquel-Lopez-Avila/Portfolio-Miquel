@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { StarsContainer, Wrapper } from './DarkMode.styled';
+import useThemeState from "../../../../../../hooks/use-theme-state";
+import {useTheme} from "styled-components";
 
-const random = (min, max) => {
+export const random = (min, max) => {
   return min + Math.random() * (max - min);
 };
 
-const createStars = (container) => {
+export const createStars = (container) => {
   const star = document.createElement('div');
   const o_size = random(0.3, 4);
   const o_co = `rgba(255,255,255,${random(0.2, 0.8)})`;
@@ -33,20 +35,34 @@ const createStars = (container) => {
   container.current.appendChild(star);
 };
 
-const DarkMode = ({ isLightMode, isFirstTheme }) => {
+const DarkMode = ({ isLightMode, isFirstTheme, showShootingStar, countStars, isContentBackground, addTransition = true }) => {
   const container = useRef(null);
+  const theme = useTheme();
 
   const [starPositions, setStartPositions] = useState({
-    left: random(0, window.innerWidth),
-    top: random(0, window.innerHeight),
+    a: {
+      left:  random(0, window.innerWidth),
+      top: random(0, window.innerHeight),
+    },
+    b: {
+      left:  random(0, window.innerWidth),
+      top: random(0, window.innerHeight),
+    }
   });
 
   useEffect(() => {
     if (container) {
       setInterval(() => {
         setStartPositions({
-          left: random(0, window.innerWidth),
-          top: random(0, window.innerHeight),
+          ...starPositions,
+          b: {
+            top: random(0, window.innerHeight),
+            left: random(0, window.innerWidth),
+          },
+          a: {
+            top: random(0, window.innerHeight),
+            left: random(0, window.innerWidth),
+          }
         });
       }, 3000);
     }
@@ -56,7 +72,7 @@ const DarkMode = ({ isLightMode, isFirstTheme }) => {
     if (container) {
       const width = parseFloat(window.getComputedStyle(container.current).width);
       const height = parseFloat(window.getComputedStyle(container.current).height);
-      const size = (width * height) / 6500;
+      const size = (width * height) / (countStars || 3500);
 
       for (let i = 0; i < size; i++) {
         createStars(container, width, height, size);
@@ -68,16 +84,27 @@ const DarkMode = ({ isLightMode, isFirstTheme }) => {
     <Wrapper
       ref={container}
       isLightMode={isLightMode}
+      theme={theme}
+      addTransition={addTransition}
+      isContentBackground={isContentBackground}
       isFirstTheme={isFirstTheme}
     >
-      <StarsContainer
-        top={starPositions.top}
-        left={starPositions.left}
+      {showShootingStar && <StarsContainer
+          top={starPositions.a.top}
+          left={starPositions.a.left}
       >
         <div
-          className="shooting-star"
+            className="shooting-star"
         />
-      </StarsContainer>
+      </StarsContainer>}
+      {showShootingStar && <StarsContainer
+          top={starPositions.b.top}
+          left={starPositions.b.left}
+      >
+        <div
+            className="shooting-star"
+        />
+      </StarsContainer>}
     </Wrapper>
   );
 };

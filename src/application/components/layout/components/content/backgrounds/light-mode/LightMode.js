@@ -4,7 +4,7 @@ import {
   ContainerPlane, Plane, Wrapper, Rainbow,
 } from './LightMode.styled';
 
-const LightMode = ({ isLightMode, isFirstTheme }) => {
+const LightMode = ({ isLightMode, isFirstTheme, showAirplane }) => {
   const [plane, setPlane] = useState({
     show: false,
     ref: 1,
@@ -41,7 +41,7 @@ const LightMode = ({ isLightMode, isFirstTheme }) => {
   return (
     <Wrapper isLightMode={isLightMode} isFirstTheme={isFirstTheme}>
       {isFirstTheme && <Rainbow isLightMode={isLightMode} />}
-      {plane.show && (
+      {plane.show && showAirplane && (
       <ContainerPlane top={plane.top} left={plane.left}>
         {plane.ref === 1 ? <Plane src={plane2Gif} /> : <Plane src={plane2Gif} />}
       </ContainerPlane>

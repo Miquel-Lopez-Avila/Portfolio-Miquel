@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
   pointer-events: none;
   height: 100%;
   background-color: #072142;
-  animation: ${transparency} 6s forwards;
+  animation: ${transparency} 8s forwards;
 `;
 
 const rain = keyframes`
@@ -54,7 +54,7 @@ const unMountToLeft = keyframes`
     opacity: 100%;
   }
   100% {
-    transform: translateX(-20px);
+    transform: translateX(-60px);
     opacity: 0;
   }
 `;
@@ -65,7 +65,7 @@ const unMountToRight = keyframes`
     opacity: 100%;
   }
   100% {
-    transform: translateX(20px);
+    transform: translateX(60px);
     opacity: 0;
   }
 `;
@@ -73,7 +73,7 @@ const unMountToRight = keyframes`
 const onMountFromRight = keyframes`
   0% {
     opacity: 0;
-    transform: translateX(-20px);
+    transform: translateX(-60px);
   }
   100% {
     transform: translateX(0);
@@ -84,7 +84,7 @@ const onMountFromRight = keyframes`
 const onMountFromLeft = keyframes`
   0% {
     opacity: 0;
-    transform: translateX(20px);
+    transform: translateX(60px);
   }
   100% {
     transform: translateX(0);

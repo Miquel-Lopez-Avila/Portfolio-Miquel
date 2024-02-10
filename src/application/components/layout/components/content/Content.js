@@ -14,8 +14,8 @@ const Content = ({ children }) => {
 
   return (
     <ContentStyle isLightMode={isLightMode}>
-      <LightMode isLightMode={isLightMode} isFirstTheme={isFirstTheme} />
-      <DarkMode isLightMode={isLightMode} isFirstTheme={isFirstTheme} />
+      <LightMode isLightMode={isLightMode} isFirstTheme={isFirstTheme} showAirplane />
+      <DarkMode isLightMode={isLightMode} isFirstTheme={isFirstTheme} showShootingStar isContentBackground/>
       {children}
     </ContentStyle>
   );

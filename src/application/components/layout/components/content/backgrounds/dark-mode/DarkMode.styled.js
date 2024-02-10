@@ -1,6 +1,7 @@
-import styled, { keyframes } from 'styled-components';
+import styled, {css, keyframes} from 'styled-components';
 import { device } from '../../../../../../style/breakpoint';
 import { changeThemeTime } from '../../../../../../config/variables';
+import lightMode from "../light-mode";
 
 const transparency = keyframes`
   from {
@@ -18,6 +19,32 @@ const visible = keyframes`
   }
 `;
 
+const tranistion = css`
+    opacity: ${({ isFirstTheme }) => isFirstTheme ? 0 : 1};
+    animation: ${({ isFirstTheme, isLightMode }) => {
+        if (!isFirstTheme) {
+            return isLightMode ? transparency : visible;
+        }
+        return null;
+    }} ${changeThemeTime}s forwards;
+`;
+
+const opacity = css`
+    opacity: 1;
+`;
+
+const noOpacity = css`
+    opacity: 0;
+`;
+
+const fixedTest = css`
+    animation: ${({ isFirstTheme, isLightMode }) => {
+        if (!isFirstTheme) {
+            return isLightMode ? transparency : visible;
+        }
+        return null;
+    }} ${changeThemeTime}s forwards;
+`;
 export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
@@ -25,18 +52,10 @@ export const Wrapper = styled.div`
   padding: 20px;
   overflow: hidden;
   position: absolute;
+  top: 0;
+  left: 0;
   z-index: 2;
-  opacity: ${({ isFirstTheme }) => isFirstTheme ? 0 : 1};
-  animation: ${({ isFirstTheme, isLightMode }) => {
-    if (!isFirstTheme) {
-      return isLightMode ? transparency : visible;
-    }
-    return null;
-  }} ${changeThemeTime}s forwards;
-
-  @media ${device.tablet} {
-    height: 100vh;
-  }
+  ${({ isContentBackground, addTransition, theme }) => isContentBackground ? tranistion : (addTransition && theme !== lightMode)  ? fixedTest : noOpacity}
 `;
 
 const tail = keyframes`
@@ -80,8 +99,8 @@ const shooting = keyframes`
 `;
 
 export const StarsContainer = styled.div`
-  position: relative;
-  transform: rotateZ(45deg);
+  position: absolute;
+  top: 0;
   width: 100%;
   height: 100%;
 
@@ -94,7 +113,6 @@ export const StarsContainer = styled.div`
   background: linear-gradient(-45deg, rgb(255, 255, 255), rgba(0, 0, 255, 0));
   border-radius: 999px;
   filter: drop-shadow(0 0 6px rgb(255, 255, 255));
-  animation: ${tail} 3000ms ease-in-out infinite, ${shooting} 3000ms ease-in-out infinite;
 
   &::before {
     content: '';

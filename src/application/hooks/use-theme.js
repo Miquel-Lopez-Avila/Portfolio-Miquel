@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { lightTheme } from '../config/theme';
+import {darkTheme, lightTheme} from '../config/theme';
 
 const useTheme = () => {
-  const [theme, setTheme] = useState(lightTheme);
+  const [theme, setTheme] = useState(darkTheme);
 
   return [theme, setTheme];
 };
