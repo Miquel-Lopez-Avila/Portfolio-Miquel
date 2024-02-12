@@ -16,8 +16,12 @@ export const Wrapper = styled.div`
 
 export const RelativeContainer = styled.div`
   position: relative;
-  margin-bottom: 40px;
   height: 40px;
+
+    margin-bottom: 160px;
+    @media ${device.tablet} {
+        margin-bottom: 40px;
+    }
 `;
 
 const transparency = keyframes`
@@ -106,11 +110,11 @@ export const ContainerConstellation = styled.div`
   }
 
   @media ${device.laptop} {
-    justify-content: start;
+    justify-content: center;
   }
 
   @media ${device.desktop} {
-    justify-content: space-evenly;
+    justify-content: center;
   }
 `;
 

@@ -23,7 +23,7 @@ export const ContainerProjects = styled.div`
 
   @media ${device.tablet} {
     flex-direction: row;
-    align-items: start;
+    align-items: center;
   }
 `;
 
@@ -79,6 +79,9 @@ export const Color = styled.div`
   transition: color ${changeThemeTime}s;
   text-align: left;
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
   font-size: ${({ size }) => size ? `${size}px` : 'auto'};
 
     & > * {
@@ -97,3 +100,4 @@ export const ColoredSpan = styled.span`
       white-space: nowrap;
     }
 `;
+

@@ -1,6 +1,7 @@
 import styled, { css, keyframes } from 'styled-components';
 import { device } from '../../../../../../style/breakpoint';
 import { changeThemeTime } from '../../../../../../config/variables';
+import { lightTheme } from "../../../../../../config/theme";
 
 const transparency = keyframes`
   from {
@@ -23,7 +24,10 @@ export const Wrapper = styled.div`
   height: 100%;
   border-radius: 50px 0 0 50px;
   padding: 20px;
+  overflow: hidden;
   position: absolute;
+  top: 0;
+  left: 0;
   z-index: 2;
   opacity: ${({ isFirstTheme }) => isFirstTheme ? 1 : 0};
   animation: ${({ isFirstTheme, isLightMode }) => {

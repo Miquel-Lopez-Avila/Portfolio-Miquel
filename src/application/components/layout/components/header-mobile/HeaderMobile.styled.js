@@ -36,7 +36,6 @@ export const Tab = styled.div`
   justify-content: center;
   align-items: center;
   max-width: 20%;
-  overflow: hidden;
 `;
 
 export const selectedTabStyle = css`

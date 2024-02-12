@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   z-index: 11;
   background: transparent;
   display: ${({ showView }) => showView ? 'block' : 'none'};
-  padding: 40px 30px 30px 30px;
+  padding: 40px 15px 30px 15px;
 
   @media ${device.tablet} {
     padding: 40px 60px 20px 40px;

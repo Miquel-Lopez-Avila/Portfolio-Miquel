@@ -57,7 +57,8 @@ const Navigation = ({
           <Item onClick={() => handleChangeSelectedTab('#presentation')} selectedTab={selectedTab['#presentation']} isThemeChanging={urlChanged} canChangeTheme={canChangeTheme} data-cursor={canChangeTheme.value ? 'pointer' : 'unset'}>
             {
             selectedTab['#presentation'] && <PointerEventsNone>
-            <DarkMode isLightMode={isLightMode} isFirstTheme={isFirstTheme} countStars={1500} addTransition={urlChanged}/>
+                  <LightMode isLightMode={isLightMode} isFirstTheme={isFirstTheme} />
+                  <DarkMode isLightMode={isLightMode} isFirstTheme={isFirstTheme} countStars={1500} addTransition={urlChanged}/>
               </PointerEventsNone>
             }
             <Icon url={person} color={theme?.letteringColor} size="24px" />

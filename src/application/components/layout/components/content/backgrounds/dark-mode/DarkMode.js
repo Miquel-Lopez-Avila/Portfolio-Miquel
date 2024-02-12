@@ -35,18 +35,42 @@ export const createStars = (container) => {
   container.current.appendChild(star);
 };
 
-const DarkMode = ({ isLightMode, isFirstTheme, showShootingStar, countStars, isContentBackground, addTransition = true }) => {
+const DarkMode = ({ isLightMode, isFirstTheme, showShootingStar, countStars, isContentBackground, addTransition = true, gradient = false }) => {
   const container = useRef(null);
   const theme = useTheme();
 
   const [starPositions, setStartPositions] = useState({
-    a: {
+    staticStars: [
+      {
+        left:  random(0, window.innerWidth),
+        top: random(0, window.innerHeight),
+        time: 3000
+      },
+      {
+        left:  random(0, window.innerWidth),
+        top: random(0, window.innerHeight),
+        time: 2500
+      },
+      {
+        left:  random(0, window.innerWidth),
+        top: random(0, window.innerHeight),
+        time: 2800
+      },
+      {
+        left:  random(0, window.innerWidth),
+        top: random(0, window.innerHeight),
+        time: 5000
+      },{
+        left:  random(0, window.innerWidth),
+        top: random(0, window.innerHeight),
+        time: 4000
+      },
+    ],
+    star: {
       left:  random(0, window.innerWidth),
       top: random(0, window.innerHeight),
-    },
-    b: {
-      left:  random(0, window.innerWidth),
-      top: random(0, window.innerHeight),
+      time: 3000,
+      show: false
     }
   });
 
@@ -55,16 +79,23 @@ const DarkMode = ({ isLightMode, isFirstTheme, showShootingStar, countStars, isC
       setInterval(() => {
         setStartPositions({
           ...starPositions,
-          b: {
-            top: random(0, window.innerHeight),
-            left: random(0, window.innerWidth),
-          },
-          a: {
-            top: random(0, window.innerHeight),
-            left: random(0, window.innerWidth),
+          star: {
+            ...starPositions.star,
+            show: false
           }
         });
       }, 3000);
+      setInterval(() => {
+        setStartPositions({
+          ...starPositions,
+          star: {
+            top: random(0, window.innerHeight),
+            left: random(0, window.innerWidth),
+            time: 3000,
+            show: true
+          }
+        });
+      }, 15000);
     }
   }, [container]);
 
@@ -88,18 +119,25 @@ const DarkMode = ({ isLightMode, isFirstTheme, showShootingStar, countStars, isC
       addTransition={addTransition}
       isContentBackground={isContentBackground}
       isFirstTheme={isFirstTheme}
+      gradient={gradient}
     >
-      {showShootingStar && <StarsContainer
-          top={starPositions.a.top}
-          left={starPositions.a.left}
-      >
-        <div
-            className="shooting-star"
-        />
-      </StarsContainer>}
-      {showShootingStar && <StarsContainer
-          top={starPositions.b.top}
-          left={starPositions.b.left}
+      {starPositions.staticStars.map(star => (
+          <StarsContainer
+              top={star.top}
+              left={star.left}
+              time={star.time}
+              removeTailAnimation
+          >
+            <div
+                className="shooting-star"
+            />
+          </StarsContainer>
+      ))}
+      {showShootingStar && starPositions.star.show && <StarsContainer
+          top={starPositions.star.top}
+          left={starPositions.star.left}
+          time={starPositions.star.time}
+          removeHead
       >
         <div
             className="shooting-star"

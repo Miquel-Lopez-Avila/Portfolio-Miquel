@@ -72,8 +72,20 @@ export const WrapperQuotes = styled.div`
 `;
 
 export const Sentence = styled.p`
-  font-size: 50px;
+  font-size: 35px;
   text-align: left;
+
+  @media ${device.tablet} {
+    font-size: 60px;
+  }
+
+  @media ${device.laptop} {
+    font-size: 90px;
+  }
+
+  @media ${device.desktop} {
+    font-size: 120px;
+  }
 `;
 
 export const Author = styled.p`

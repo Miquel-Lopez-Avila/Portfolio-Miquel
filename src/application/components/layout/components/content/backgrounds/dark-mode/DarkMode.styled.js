@@ -2,6 +2,7 @@ import styled, {css, keyframes} from 'styled-components';
 import { device } from '../../../../../../style/breakpoint';
 import { changeThemeTime } from '../../../../../../config/variables';
 import lightMode from "../light-mode";
+import { darkTheme } from "../../../../../../config/theme";
 
 const transparency = keyframes`
   from {
@@ -46,16 +47,20 @@ const fixedTest = css`
     }} ${changeThemeTime}s forwards;
 `;
 export const Wrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  border-radius: 50px 0 0 50px;
-  padding: 20px;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  ${({ isContentBackground, addTransition, theme }) => isContentBackground ? tranistion : (addTransition && theme !== lightMode)  ? fixedTest : noOpacity}
+    width: 100%;
+    height: 100%;
+    border-radius: 50px 0 0 50px;
+    padding: 20px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    ${({
+           isContentBackground,
+           addTransition,
+           theme
+       }) => isContentBackground ? tranistion : (addTransition && theme !== lightMode) ? fixedTest : noOpacity}
 `;
 
 const tail = keyframes`
@@ -103,6 +108,7 @@ export const StarsContainer = styled.div`
   top: 0;
   width: 100%;
   height: 100%;
+  transform: rotateZ(45deg);
 
   & > .shooting-star {
   position: absolute;
@@ -113,6 +119,7 @@ export const StarsContainer = styled.div`
   background: linear-gradient(-45deg, rgb(255, 255, 255), rgba(0, 0, 255, 0));
   border-radius: 999px;
   filter: drop-shadow(0 0 6px rgb(255, 255, 255));
+  animation: ${({ removeTailAnimation, time }) => !removeTailAnimation && css`${tail} ${time}ms ease-in-out infinite, ${shooting} ${time}ms ease-in-out infinite}`};
 
   &::before {
     content: '';
@@ -123,7 +130,7 @@ export const StarsContainer = styled.div`
     background: linear-gradient(-45deg, rgba(0, 0, 255, 0), rgb(255, 255, 255), rgba(0, 0, 255, 0));
     transform: translateX(50%) rotateZ(45deg);
     border-radius: 100%;
-    animation: ${shining} 3000ms ease-in-out infinite;
+    animation: ${({ time, removeHead }) =>  !removeHead && css`${shining} ${time}ms ease-in-out infinite`};
   }
   &::after {
     content: '';
@@ -133,7 +140,7 @@ export const StarsContainer = styled.div`
     height: 2px;
     background: linear-gradient(-45deg, rgba(0, 0, 255, 0), rgb(255, 255, 255), rgba(0, 0, 255, 0));
     border-radius: 100%;
-    animation: ${shining} 3000ms ease-in-out infinite;
+    animation: ${({ time, removeHead }) => !removeHead && css`${shining} ${time}ms ease-in-out infinite`};
     transform: translateX(50%) rotateZ(-45deg);
   }
   }

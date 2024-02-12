@@ -12,7 +12,7 @@ const InitialLoader = () => {
   const rainContainer = useRef(null);
 
   useEffect(() => {
-      genRain();
+      // genRain();
   }, []);
 
   const genRain = () => {
