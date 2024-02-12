@@ -7,7 +7,8 @@ export const Wrapper = styled.div`
   z-index: 2;
   display: ${({ showView }) => showView ? 'block' : 'none'};
   padding: 40px 30px 30px 30px;
-
+    width: 100%;
+    height: 100%;
   @media ${device.tablet} {
     padding: 40px 60px 20px 40px;
   }
@@ -20,6 +21,8 @@ export const ContainerProjects = styled.div`
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 20px;
+  width: 100%;
+  height: 100%;
 
   @media ${device.tablet} {
     flex-direction: row;
@@ -82,7 +85,8 @@ export const Color = styled.div`
   display: flex;
   align-items: center;
   gap: 7px;
-    flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  white-space: nowrap;
   font-size: ${({ size }) => size ? `${size}px` : 'auto'};
 
     & > * {

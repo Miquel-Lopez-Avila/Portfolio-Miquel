@@ -72,19 +72,20 @@ export const WrapperQuotes = styled.div`
 `;
 
 export const Sentence = styled.p`
-  font-size: 35px;
+  font-size: 50px;
   text-align: left;
+  font-family: 'Protest Riot', sans-serif;
 
   @media ${device.tablet} {
     font-size: 60px;
   }
 
   @media ${device.laptop} {
-    font-size: 90px;
+    font-size: 120px;
   }
 
   @media ${device.desktop} {
-    font-size: 120px;
+    font-size: 150px;
   }
 `;
 

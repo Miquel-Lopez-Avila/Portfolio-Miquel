@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import ChromeExtension from '../../application/assets/projects-images/img.png';
 import Carendar from '../../application/assets/projects-images/img_1.png';
 import arrowIcon from '../../application/assets/icons/arrow-right-solid.svg';
@@ -9,8 +9,10 @@ import {
 import Icon from "../../common/components/icon";
 import useThemeChanged from "../../application/hooks/use-theme-changed";
 import {useTheme} from "styled-components";
+import Canvas from "./components/ballons";
 
 const Projects = ({ showView }) => {
+  const container = useRef(null);
   const { themeChanged } = useThemeChanged();
   const theme = useTheme();
 
@@ -19,39 +21,8 @@ const Projects = ({ showView }) => {
       <PageTitle>
         Learn about my <ColoredSpan>personal projects</ColoredSpan>
       </PageTitle>
-      <ContainerProjects>
-        <Block>
-          <Anchor href="https://github.com/Miquel-Lopez-Avila/nodes-navigation-focus" target="_blank" rel="noreferrer">
-            <Image src={NodesNavigationFocus} data-cursor="pointer" />
-          </Anchor>
-          <ContainerText>
-            <div><Color size={25}><Icon url={arrowIcon} color={theme.primaryColor} size="15px" themeChanged={themeChanged} />
-              nodes-navigation-focus</Color> This is a JS library which <ColoredSpan>automates the focus moviment in the screen.</ColoredSpan><br />
-              The library uses the <ColoredSpan>react-hooks to manipulate the DOM</ColoredSpan> and recieve and return infomation about the state of the element.
-            </div>
-          </ContainerText>
-        </Block>
-        <Block reverse>
-          <Anchor href="https://github.com/Miquel-Lopez-Avila/FlowTime" target="_blank" rel="noreferrer">
-            <Image src={ChromeExtension} data-cursor="pointer" />
-          </Anchor>
-          <ContainerText>
-            <div>
-              <Color size={25}><Icon url={arrowIcon} color={theme.primaryColor} size="15px" themeChanged={themeChanged} />FlowTime Pro</Color> Manage time and increment your productivity.<br />
-              This is an extension to <ColoredSpan>manage time</ColoredSpan>, with the finallity of make rest during a determinate period of work.
-            </div>
-          </ContainerText>
-        </Block>
-        <Block>
-          <Anchor href="https://github.com/Miquel-Lopez-Avila/Carendar-REACT" target="_blank" rel="noreferrer">
-            <Image src={Carendar} data-cursor="pointer" />
-          </Anchor>
-          <ContainerText>
-            <div><Color size={25}><Icon url={arrowIcon} color={theme.primaryColor} size="15px" themeChanged={themeChanged} />Carendar</Color> This application consists of <ColoredSpan>management functions.</ColoredSpan><br />
-              Such as requesting, modifying or deleting hairdresser appointments, inventory or stock management, customer management (personal information) and cashier control, mainly.
-            </div>
-          </ContainerText>
-        </Block>
+      <ContainerProjects ref={container}>
+          {container.current && <Canvas container={container.current} />}
       </ContainerProjects>
     </Wrapper>
   );

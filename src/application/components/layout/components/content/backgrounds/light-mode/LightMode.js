@@ -38,9 +38,10 @@ const LightMode = ({ isLightMode, isFirstTheme, showAirplane }) => {
       left: 0,
     });
   };
+  // {isFirstTheme && <Rainbow isLightMode={isLightMode} />}
   return (
     <Wrapper isLightMode={isLightMode} isFirstTheme={isFirstTheme}>
-      {isFirstTheme && <Rainbow isLightMode={isLightMode} />}
+
       {plane.show && showAirplane && (
       <ContainerPlane top={plane.top} left={plane.left}>
         {plane.ref === 1 ? <Plane src={plane2Gif} /> : <Plane src={plane2Gif} />}

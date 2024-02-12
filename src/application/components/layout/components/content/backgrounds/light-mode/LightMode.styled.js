@@ -89,7 +89,7 @@ export const RainbowAnimation = css`
 export const Rainbow = styled.div`
   width: 170%;
   aspect-ratio: 1;
-  z-index: 0;
+  z-index: 3;
   clip-path: polygon(0 0, 100% 64%, 100% 0);
   border-radius: 100%;
   box-shadow: 0px 0px 0px 20px #fdd9ff, 0px 0px 0px 40px #c6abff, 0px 0px 0px 60px #6ea6f5, 0px 0px 0px 80px #79d991, 0px 0px 0px 100px #fff47d, 0px 0px 0px 120px orange, 0px 0px 0px 140px red;

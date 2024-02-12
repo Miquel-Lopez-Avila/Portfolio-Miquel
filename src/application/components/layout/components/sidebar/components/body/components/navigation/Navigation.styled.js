@@ -23,6 +23,7 @@ export const List = styled.ul`
   width: 100%;
 `;
 export const PointerEventsNone = styled.span`
+  display: contents;
   pointer-events: none;
 `;
 

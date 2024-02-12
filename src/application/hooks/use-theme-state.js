@@ -3,7 +3,7 @@ import { useTheme } from 'styled-components';
 import { lightTheme } from '../config/theme';
 
 const useThemeState = () => {
-  const [isLightMode, setIsLightMode] = useState(true);
+  const [isLightMode, setIsLightMode] = useState(false);
   const theme = useTheme();
 
   useEffect(() => {
