@@ -82,6 +82,7 @@ export const Color = styled.div`
   display: flex;
   align-items: center;
   gap: 7px;
+    flex-wrap: nowrap;
   font-size: ${({ size }) => size ? `${size}px` : 'auto'};
 
     & > * {
