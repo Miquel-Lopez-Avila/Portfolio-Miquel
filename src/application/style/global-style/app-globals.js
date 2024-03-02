@@ -1,6 +1,5 @@
 import { css } from "styled-components";
 import { device } from "../breakpoint";
-import Protest from "ProtestRiot.ttf";
 
 export const appGlobals = css`
   * {
@@ -32,10 +31,5 @@ export const appGlobals = css`
 
   .a_star {
     transition-duration: 1s;
-  }
-
-  @font-face {
-    font-family: "Protest";
-    src: url(${Protest}) format("truetype");
   }
 `;
