@@ -1,12 +1,12 @@
-import styled, { css, keyframes } from 'styled-components';
-import { device } from '../../application/style/breakpoint';
-import { changeThemeTime } from '../../application/config/variables';
-import Icon from '../../common/components/icon';
+import styled, { css, keyframes } from "styled-components";
+import { device } from "../../application/style/breakpoint";
+import { changeThemeTime } from "../../application/config/variables";
+import Icon from "../../common/components/icon";
 
 export const Wrapper = styled.div`
   position: relative;
   background: transparent;
-  display: ${({ showView }) => showView ? 'block' : 'none'};
+  display: ${({ showView }) => (showView ? "block" : "none")};
   padding: 40px 30px 30px 30px;
 
   @media ${device.tablet} {
@@ -19,9 +19,9 @@ export const Color = styled.span`
   transition: color ${changeThemeTime}s;
   text-align: center;
 
-    & > * {
-      white-space: nowrap;
-    }
+  & > * {
+    white-space: nowrap;
+  }
 `;
 
 export const ContainerContent = styled.div`
@@ -74,8 +74,9 @@ export const WrapperQuotes = styled.div`
 export const Sentence = styled.p`
   font-size: 50px;
   text-align: left;
-  font-family: 'Protest Riot', sans-serif;
-
+  font-family: "Protest Riot", sans-serif;
+  src: url("ProtestRiot-Regular.ttf");
+  
   @media ${device.tablet} {
     font-size: 60px;
   }
