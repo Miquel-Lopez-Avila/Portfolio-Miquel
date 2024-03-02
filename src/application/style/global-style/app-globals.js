@@ -1,6 +1,6 @@
 import { css } from "styled-components";
 import { device } from "../breakpoint";
-import Protest from "../../../fonts/ProtestRiot.ttf";
+import Protest from "ProtestRiot.ttf";
 
 export const appGlobals = css`
   * {
