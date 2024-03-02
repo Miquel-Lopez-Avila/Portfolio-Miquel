@@ -18,13 +18,15 @@ module.exports = {
       favicon: "./public/favicon.ico",
       filename: "index.html",
     }),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "styles.css",
+    }),
   ],
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: [MiniCssExtractPlugin.loader, "style-loader", "css-loader"],
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
