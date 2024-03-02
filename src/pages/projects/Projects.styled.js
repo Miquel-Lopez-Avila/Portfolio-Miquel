@@ -1,14 +1,13 @@
-import styled from 'styled-components';
-import { device } from '../../application/style/breakpoint';
-import { changeThemeTime } from '../../application/config/variables';
+import styled from "styled-components";
+import { device } from "../../application/style/breakpoint";
+import { changeThemeTime } from "../../application/config/variables";
 
 export const Wrapper = styled.div`
   position: relative;
   z-index: 2;
-  display: ${({ showView }) => showView ? 'block' : 'none'};
+  display: ${({ showView }) => (showView ? "block" : "none")};
   padding: 40px 30px 30px 30px;
-    width: 100%;
-    height: 100%;
+  width: 100%;
   @media ${device.tablet} {
     padding: 40px 60px 20px 40px;
   }
@@ -40,7 +39,6 @@ export const Image = styled.img`
   min-height: 150px;
   transition: all ${changeThemeTime}s;
   box-shadow: 6px 6px ${({ theme }) => theme.primaryColor};
-
 `;
 
 export const Block = styled.div`
@@ -50,7 +48,7 @@ export const Block = styled.div`
   width: 100%;
 
   @media ${device.tablet} {
-    flex-direction: ${({ reverse }) => reverse ? 'row-reverse' : 'row'};
+    flex-direction: ${({ reverse }) => (reverse ? "row-reverse" : "row")};
     align-items: start;
     gap: 20px;
   }
@@ -87,11 +85,11 @@ export const Color = styled.div`
   gap: 7px;
   flex-wrap: nowrap;
   white-space: nowrap;
-  font-size: ${({ size }) => size ? `${size}px` : 'auto'};
+  font-size: ${({ size }) => (size ? `${size}px` : "auto")};
 
-    & > * {
-      white-space: nowrap;
-    }
+  & > * {
+    white-space: nowrap;
+  }
 `;
 
 export const ColoredSpan = styled.span`
@@ -99,10 +97,9 @@ export const ColoredSpan = styled.span`
   transition: color ${changeThemeTime}s;
   text-align: left;
   margin-bottom: 10px;
-  font-size: ${({ size }) => size ? `${size}px` : 'auto'};
+  font-size: ${({ size }) => (size ? `${size}px` : "auto")};
 
-    & > * {
-      white-space: nowrap;
-    }
+  & > * {
+    white-space: nowrap;
+  }
 `;
-
