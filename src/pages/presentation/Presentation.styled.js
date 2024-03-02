@@ -1,7 +1,6 @@
 import styled, { css, keyframes } from "styled-components";
 import { device } from "../../application/style/breakpoint";
 import { changeThemeTime } from "../../application/config/variables";
-import Icon from "../../common/components/icon";
 
 export const Wrapper = styled.div`
   position: relative;
@@ -74,9 +73,8 @@ export const WrapperQuotes = styled.div`
 export const Sentence = styled.p`
   font-size: 50px;
   text-align: left;
-  font-family: "Protest Riot", sans-serif;
-  src: url("ProtestRiot-Regular.ttf");
-  
+  font-family: "Protest";
+
   @media ${device.tablet} {
     font-size: 60px;
   }
