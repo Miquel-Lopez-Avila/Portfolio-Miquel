@@ -1,14 +1,19 @@
-import styled, { css, keyframes } from 'styled-components';
-import { lightTheme } from '../../../application/config/theme';
-import { device } from '../../../application/style/breakpoint';
-import { changeThemeTimeInitialLoader } from '../../../application/config/variables';
-import Icon from '../icon';
+import styled, { css, keyframes } from "styled-components";
+import { lightTheme } from "../../../application/config/theme";
+import { device } from "../../../application/style/breakpoint";
+import { changeThemeTimeInitialLoader } from "../../../application/config/variables";
+import Icon from "../icon";
 
 const transparency = keyframes`
-  from {
+  0% {
     opacity: 1;
-  } to {
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
     opacity: 0;
+
   }
 `;
 
@@ -22,7 +27,7 @@ export const Wrapper = styled.div`
   pointer-events: none;
   height: 100%;
   background-color: #072142;
-  animation: ${transparency} 8s forwards;
+  animation: ${transparency} 6s forwards;
 `;
 
 const rain = keyframes`
@@ -41,7 +46,7 @@ export const RaindropContainer = styled.div`
     top: -50px;
     width: 2px;
     height: 30px;
-    background-color: #D3D3D3;
+    background-color: #d3d3d3;
     animation: ${rain} 0.4s linear infinite;
     opacity: 0.2;
     z-index: -2;
@@ -122,7 +127,14 @@ export const Cloud = styled(Icon)`
   height: ${({ height }) => height && height};
   top: ${({ top }) => top && top};
   left: ${({ left }) => left && left};
-  ${({ theme, isLeft }) => theme !== lightTheme ? (isLeft ? unMountAnimationToLeft : unMountAnimationToRight) : (isLeft ? onMountAnimationFromRight : onMountAnimationFromLeft)};
+  ${({ theme, isLeft }) =>
+    theme !== lightTheme
+      ? isLeft
+        ? unMountAnimationToLeft
+        : unMountAnimationToRight
+      : isLeft
+      ? onMountAnimationFromRight
+      : onMountAnimationFromLeft};
   ${({ addClipPath }) => addClipPath && clipPath}
 
   @media ${device.tablet} {

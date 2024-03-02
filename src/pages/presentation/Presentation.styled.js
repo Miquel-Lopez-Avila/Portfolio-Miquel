@@ -73,7 +73,7 @@ export const WrapperQuotes = styled.div`
 export const Sentence = styled.p`
   font-size: 50px;
   text-align: left;
-  font-family: "Protest";
+  font-family: "Protest Riot", sans-serif;
 
   @media ${device.tablet} {
     font-size: 60px;

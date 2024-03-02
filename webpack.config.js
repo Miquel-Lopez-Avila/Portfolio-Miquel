@@ -31,6 +31,9 @@ module.exports = {
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: "asset/resource",
+        options: {
+          name: "[name].[contenthash].[ext]",
+        },
       },
       {
         test: /\.(png|svg|jpe?g|gif)$/,
