@@ -80,7 +80,7 @@ export const Sentence = styled.p`
   }
 
   @media ${device.laptop} {
-    font-size: 120px;
+    font-size: 85px;
   }
 
   @media ${device.desktop} {
